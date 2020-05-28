@@ -1,0 +1,10 @@
+<label for="{{$ctrl.field.name}}">{{$ctrl.field.label}}</label>
+
+<input ng-if="$ctrl.field.type !== 'radio'" type="{{$ctrl.field.type}}" name="{{$ctrl.field.name}}">
+
+<div ng-if="$ctrl.field.type === 'radio'" id="$ctrl.field.name">
+    <div class="radio" id="option" ng-repeat="option in $ctrl.field.options">
+        <label for="$ctrl.field.name">{{ option }}</label>
+        <input type="radio" name="$ctrl.field.name" value="{{option}}">
+    </div>
+</div>
