@@ -2,14 +2,16 @@
 
     'use strict';
 
-    function FormFieldController() {
+    function FormFieldController($scope) {
         var vm = this;
 
-        vm.ruleFilter = function() {
-            return vm.rules.filter(function(el) {
+        $scope.rulesFiltered=[];
+
+        $scope.$watch('rules',function(){
+            $scope.fulesFiltered = vm.rules.filter(function(el) {
                 return el.on === vm.field.name;
             });
-        }
+        })
     }
 
     angular
